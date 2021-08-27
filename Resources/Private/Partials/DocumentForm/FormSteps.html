@@ -1,0 +1,36 @@
+{namespace eww=EWW\Dpf\ViewHelpers}
+
+<div class="qsa_progress-bar">
+    <div class="qsa_progress-bar__container">
+        <ol class="qsa_progress-bar__container-list">
+            <f:for each="{documentForm.items}" as="formPage" iteration="pageIterator">
+                <f:if condition="{eww:IsElementAllowed(condition:'{formPage.0.backendOnly}')}">
+                    <f:then>
+                        <li class="qsa_progress-bar__container-item {f:if(condition: '{pageIterator.index}==0', then: 'active', else:'')}" data-id="tab-{pageIterator.cycle}" data-toggle="tab" aria-expanded="false">
+                            <a href="#tab-{pageIterator.cycle}" aria-label="Zum Schritt {formPage.0.displayName} springen">
+                                <span class="qsa_progress-bar__container-item-counter">{pageIterator.cycle}. </span>
+                                <span class="qsa_progress-bar__container-item-title">{formPage.0.displayName}</span>
+                            </a>
+                        </li>
+                    </f:then>
+                    <f:else>
+                        <li class="qsa_progress-bar__container-item" data-id="tab-fileUpload" data-toggle="tab" aria-expanded="false">
+                            <a href="#tab-fileUpload" aria-label="Zum Schritt Dateien springen">
+                                <span class="qsa_progress-bar__container-item-counter">{pageIterator.cycle}. </span>
+                                <span class="qsa_progress-bar__container-item-title">Dateien</span>
+                            </a>
+                        </li>
+                    </f:else>
+                </f:if>
+            </f:for>
+            <li class="qsa_progress-bar__container-item" data-id="tab-checkForm" data-toggle="tab" aria-expanded="false">
+                <a href="#tab-checkForm" aria-label="Zum Schritt Überprüfen springen">
+                    <span class="qsa_progress-bar__container-item-title">Überprüfen</span>
+                </a>
+            </li>
+        </ol>
+    </div>
+    <button class="btn qsa_btn qsa_btn--round" aria-label="Weitere Schritte aufrufen">
+        <f:render partial="Icon" arguments="{icon:'arrow-left'}" />
+    </button>
+</div>

@@ -1,0 +1,56 @@
+<div class="qsa_wizard qsa_wizard--open" id="qucosaWizard">
+    <figure class="qsa_wizard__figure">
+        <f:image src="EXT:slub_web_qucosa/Resources/Public/Images/img/hero/hero-bg.png" title="Hintergundbild" alt="Hintergrundbild Eingabeassistent"/>
+    </figure>
+    <div class="qsa_wizard__wrapper qsa_wizard__wrapper-steps container">
+        <h2 class="h1">
+            <f:translate key="documentForm.new.header" arguments="{0: '{documentForm.displayName}'}"/>
+        </h2>
+        <button type="button" class="qsa_wizard__header-btn btn-outline__without" aria-label="Eingabeassistent schließen" tabindex="-1">
+            <span class="sr-only">Eingabeassistent schließen</span>
+            <f:render partial="Icon" arguments="{icon:'cancel'}" />
+        </button>
+        <f:render partial="DocumentForm/New" arguments="{documentForm:documentForm}"/>
+    </div>
+</div>
+
+<div class="qsa_modal modal fade" tabindex="-1" role="dialog" id="wizardErrorModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Daten unvollständig!</h5>
+                <button type="button" class="btn qsa_btn btn-outline__without close" data-dismiss="modal" aria-label="Close">
+                    <f:render partial="Icon" arguments="{icon:'close'}" />
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Sie haben im letzten Schritt einige Pflichtfelder gar nicht oder Felder fehlerhaft ausgefüllt. Sie können dennoch fortfahren und Ihre Eingaben zu jeder Zeit berichtigen.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn qsa_btn__submit" data-dismiss="modal">Verstanden</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="qsa_modal modal fade" tabindex="-1" role="dialog" id="wizardCloseWarning">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Achtung!</h5>
+                <button type="button" class="btn qsa_btn btn-outline__without close" data-dismiss="modal" aria-label="Close">
+                    <f:render partial="Icon" arguments="{icon:'close'}" />
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Wenn Sie den Eingabeassistenten schließen und die Seite erneut laden, gehen Ihre Eingaben verloren. Wollen Sie den Eingabeassistent schließen?</p>
+            </div>
+            <div class="modal-footer">
+                <f:link.typolink parameter="{settings.pageID.root}" class="btn qsa_btn__submit" additionalAttributes="{id: 'closeWizard'}">
+                    Ja
+                </f:link.typolink>
+                <button type="button" class="btn qsa_btn__submit" data-dismiss="modal">Nein</button>
+            </div>
+        </div>
+    </div>
+</div>
