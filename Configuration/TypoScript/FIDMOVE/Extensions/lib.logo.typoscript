@@ -1,0 +1,8 @@
+lib.logo {
+    stdWrap.typolink.ATagParams = class="qsa_logo qsa_logo__fidmove"
+    stdWrap.typolink.title = Startseite
+    10 {
+        file = EXT:slub_web_qucosa/Resources/Public/Images/logo/Logo_FID_Move.svg
+        altText = Logo des FID Move
+    }
+}

@@ -1,29 +1,57 @@
 {namespace s=Subugoe\Find\ViewHelpers}
+{namespace si=Slub\SlubWebQucosa\ViewHelpers}
 
 <div class="qsa_search__wrapper">
 	<div class="qsa_search-result__item">
 		<h2 class="h6 qsa_search-result__item-title">
-			<f:link.page class="qsa_search-result__item-title-link"
-						noCacheHash="1"
-						pageUid="{settings.landingPageUID}"
-						additionalParams="{tx_dlf: {id: '{f:uri.page(pageUid:\'{settings.rootPageId}\', absolute:1)}api/qucosa%3A{document.record_id}/mets/'}}">
-				<f:if condition="{s:data.valueForKey(array:document.fields, key:settings.standardFields.title)}">
-					<f:then>
-						<f:render
-								partial="Display/Field/Inline"
-								arguments="{
-									config:config,
-									results:results,
-									document:document,
-									field:settings.standardFields.title,
-									separator:', '
-								}"/>
-					</f:then>
-					<f:else>
-						ID: {document.id}
-					</f:else>
-				</f:if>
-			</f:link.page>
+
+			<si:contains haystacks="{document.fields.record_id}" needle="qucosa">
+				<f:then>
+					<f:link.page class="qsa_search-result__item-title-link"
+								noCacheHash="1"
+								pageUid="{settings.landingPageUID}"
+								additionalParams="{tx_dlf: {id: 'https://qucosa.de/api/{document.fields.record_id -> f:format.urlencode()}/mets/'}}">
+						<f:if condition="{s:data.valueForKey(array:document.fields, key:settings.standardFields.title)}">
+							<f:then>
+								<f:render
+										partial="Display/Field/Inline"
+										arguments="{
+											config:config,
+											results:results,
+											document:document,
+											field:settings.standardFields.title,
+											separator:', '
+										}"/>
+							</f:then>
+							<f:else>
+								ID: {document.id}
+							</f:else>
+						</f:if>
+					</f:link.page>
+				</f:then>
+				<f:else>
+					<f:link.external class="qsa_search-result__item-title-link"
+							uri="{document.fields.url.0}"
+							target="_blank">
+						<f:if condition="{s:data.valueForKey(array:document.fields, key:settings.standardFields.title)}">
+							<f:then>
+								<f:render
+										partial="Display/Field/Inline"
+										arguments="{
+											config:config,
+											results:results,
+											document:document,
+											field:settings.standardFields.title,
+											separator:', '
+										}"/>
+							</f:then>
+							<f:else>
+								ID: {document.id}
+							</f:else>
+						</f:if>
+					</f:link.external>
+				</f:else>
+			</si:contains>
 		</h2>
 		<div class="qsa_search-result__item-info">
 			<f:if condition="{document.fields.format_de14}">
@@ -56,16 +84,11 @@
 						<span class="qsa_search-result__item-footer__item btn-round">{author}</span>
 					</f:for>
 				</f:then>
-				<f:else>
-					<f:if condition="{document.fields.publisher}">
-						<f:for each="{document.fields.publisher}" as="publisher">
-							<span class="qsa_search-result__item-footer__item btn-round">{publisher}</span>
-						</f:for>
-					</f:if>
-				</f:else>
 			</f:if>
 			<f:if condition="{document.fields.publishDateSort}">
-				<span class="qsa_search-result__item-footer__item btn-round">{document.fields.publishDateSort}</span>
+				<f:for each="{document.fields.publishDateSort}" as="publishDateSort">
+					<span class="qsa_search-result__item-footer__item btn-round">{publishDateSort}</span>
+				</f:for>
 			</f:if>
 		</div>
 	</div>

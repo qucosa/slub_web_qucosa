@@ -177,7 +177,7 @@
 			<source>Add or remove to bookmarks</source>
 		</trans-unit>
 		<trans-unit id="tx_slubwebqucosa.find.result_categorie" xml:space="preserve">
-			<source>Found in</source>
+			<source>Topics:</source>
 		</trans-unit>
 		<trans-unit id="tx_slubwebqucosa.find.result_sort" xml:space="preserve">
 			<source>Sort results</source>

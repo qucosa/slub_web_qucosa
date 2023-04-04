@@ -20,7 +20,22 @@
                                 {settings.headerSubheader}
                             </p>
                         </div>
-                        <f:cObject typoscriptObjectPath="lib.navsearch"/>
+                       <div class="qsa_search-header__content">
+                        <form method="get" class="qsa_search-header__search-wrapper search-simple" action="/recherchieren">
+                            <div class="qsa_search-header__search">
+                                <label class="sr-only" for="c939-field-default">Durchsuchen Sie wissenschaftliche Publikationen der Mobilitäts- und Verkehrsforschung</label>
+                               <input a="1" aria-autocomplete="list" placeholder="Durchsuchen Sie wissenschaftliche Publikationen der Mobilitäts- und Verkehrsforschung" class="inputType-text autocomplete tabbed" id="c939-field-default" type="text" name="tx_find_find[q][default]" value="" aria-expanded="false">
+                                <button aria-label="Suche starten" type="submit" name="" value="" class="">
+                                    <span class="sr-only">Suche starten</span>
+                                    <svg class="qsa_icon icon--search icon--base" role="img" width="20" height="20" aria-hidden="true">
+                                        <title class="sr-only">Icon</title>
+                                        <desc class="sr-only">search Icon</desc>
+                                           <use xlink:href="/typo3conf/ext/slub_web_qucosa/Resources/Public/Icons/icon.min.svg#icon-search"></use>
+                                   </svg>
+                                </button>
+                            </div>
+                        </form>
+                       </div>
                     </div>
                     <figure class="qsa_hero__figure">
                         <img src="{f:uri.resource(path:'Images/hero/hero-bg.png', extensionName: 'slub_web_qucosa')}"

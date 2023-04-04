@@ -51,6 +51,12 @@ class SearchHeader {
         const searchContainer = document.querySelector('.qsa_search-header__container')
         const closeAdvancedSearch = document.getElementById('closeAdvanced')
 
+        inputs.forEach(input => {
+            if(input.value != ''){
+               input.setAttribute('data-empty', false);
+            }
+        })
+
         if(openAdvancedSearch) {
             openAdvancedSearch.addEventListener('click', () => {
                 this.expandSearch(searchBar, advancedSearch, amountResults, searchFooter, advancedSearchContainer, searchContainer)

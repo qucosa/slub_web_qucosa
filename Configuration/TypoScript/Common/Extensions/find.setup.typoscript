@@ -39,13 +39,13 @@ plugin.tx_find {
                 label = Thema
             }
             50 {
-                extended = 1
+                extended = 0
                 id = institution
                 type = Text
                 label = Institution
             }
             60 {
-                extended = 1
+                extended = 0
                 id = doctype
                 type = Select
                 options {

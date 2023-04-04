@@ -1,0 +1,18 @@
+/* Additional CSS styles specifically for the UBL client */
+
+/*  There's no translation necessary so we hide this option */
+.qsa_dropdown--language {
+	display: none;
+}
+
+/* TODO: move into the common styles and remove specific workaround for hyper link styles */
+
+p a, li a:not(.qsa_nav__link, .qsa_footer__nav__link) {
+	font-weight: 500 !important;
+	text-decoration: underline !important;
+	color: #c60804 !important;
+}
+p a:hover, li a:not(.qsa_nav__link, .qsa_footer__nav__link):hover {
+	color: #c60804 !important;
+	cursor: pointer;
+}

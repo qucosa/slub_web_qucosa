@@ -39,31 +39,7 @@
     <div class="row qsa_search-header__advanced-search__container">
 
         <div class="col-12 col-xl-8">
-            <f:comment>
-                <!--
-                <f:for each="{settings.queryFields}" as="fieldInfo">
-                <f:if condition="{fieldInfo.type}">
-                    <f:then>
-                        <f:if condition="{s:logic.or(conditions:'{
-						0:\"{s:logic.not(condition:fieldInfo.hidden)}\",
-                        1:\"{s:data.valueForKey(array:arguments.q, key:fieldInfo.id)}\"
-                        }')}">
-                        <f:if condition="{fieldInfo.extended} && {fieldInfo.type} == 'Range'">
-                            <f:alias map="{queryParameter:'{s:data.valueForKey(array:config.query, key:fieldInfo.id)}'}">
-                                <f:render partial="Form/Fields/{fieldInfo.type}" arguments="{_all}"/>
-                            </f:alias>
-                        </f:if>
-                </f:if>
-                </f:then>
-                <f:else>
-                    <div class="fieldContainer error">
-                        <f:translate key="Missing type in configuration for queryField %s." arguments="{0:fieldInfo.id}"/>
-                    </div>
-                </f:else>
-                </f:if>
-            </f:for>
-                -->
-            </f:comment>
+
         </div>
 
         <div class="col-12 col-xl-4 qsa_search-header__advanced-search__button-container">

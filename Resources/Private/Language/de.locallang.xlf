@@ -223,8 +223,8 @@
 			    <target>Zur Merkliste hinzufügen oder entfernen</target>
 		    </trans-unit>
             <trans-unit id="tx_slubwebqucosa.find.result_categorie" xml:space="preserve">
-			    <source>Found in</source>
-			    <target>Gefunden in</target>
+			    <source>Topics:</source>
+			    <target>Schlagworte:</target>
 		    </trans-unit>
             <trans-unit id="tx_slubwebqucosa.find.result_sort" xml:space="preserve">
 			    <source>Sort results</source>
